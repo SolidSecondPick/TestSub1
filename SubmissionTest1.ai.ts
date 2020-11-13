@@ -1,4 +1,3 @@
-
 survDirection = 'none';
 turn =0;
 
@@ -23,6 +22,7 @@ function main(gameState, side){
             currSurviveDistance ++;
             console.log("NO PATH FOUND1");
 	    currSurviveDistance++;
+            console.log("NO PATH FOUND3");
             console.log(currSurviveDistance);
             console.log(x);
 	    console.log(y);
@@ -60,7 +60,6 @@ function main(gameState, side){
           	pathState = gameState;
             currSurviveDistance ++;
             console.log("NO PATH FOUND2");
-	    console.log(currSurviveDistance);
 	    console.log(x);
 	    console.log(y);
           }
@@ -97,8 +96,8 @@ function main(gameState, side){
 //				OUTPUT: returns the direction the monster should go (N,S,E,W)
 //================================================================================================================================================
 function PathFind1(x, y, pathState, pathLength, side){
-	initialPathState = pathState;
-	console.log("CHANGES APPLIED");
+	
+	
 	//------------------------------------------------------------------------------------------------------------------------
 	// 			PRIORITY IF HOME SIDE
 	//------------------------------------------------------------------------------------------------------------------------
@@ -124,7 +123,6 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState PathState;
 		if(y<6){
 		  if(pathState.tileStates[x][y+1] > 1){
 			EastPath = PathFind1(x, y+1, pathState, pathLength + 1);
@@ -134,7 +132,6 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
 		if(y>0){
 		  if(pathState.tileStates[x][y-1] > 1){
 			WestPath = PathFind1(x, y-1, pathState, pathLength + 1);
@@ -144,7 +141,6 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
 	  if(x>0){
 		  if(pathState.tileStates[x-1][y] > 1){
 			  NorthPath = PathFind1(x-1, y, pathState, pathLength + 1);
@@ -155,7 +151,6 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
 		return pathLength-1;
 	}
 	
@@ -179,7 +174,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 		maxPath = 0;
 		
 		if(x>0){
-		  if(pathState.tileStates[x-1][y] > 1){f
+		  if(pathState.tileStates[x-1][y] > 1){
 			  NorthPath = PathFind1(x-1, y, pathState, pathLength + 1);
 			if(NorthPath >= 0){
 				survDirection = 'north';
@@ -188,7 +183,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
+
 		if(y>0){
 		  if(pathState.tileStates[x][y-1] > 1){
 			WestPath = PathFind1(x, y-1, pathState, pathLength + 1);
@@ -198,7 +193,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
+		
 		if(y<6){
 		  if(pathState.tileStates[x][y+1] > 1){
 			EastPath = PathFind1(x, y+1, pathState, pathLength + 1);
@@ -208,7 +203,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = initialPathState;
+		
 		if(x<6){
 		  if(pathState.tileStates[x+1][y] > 1){	
 			SouthPath = PathFind1(x+1, y, pathState, pathLength+1);
@@ -219,7 +214,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 		  }
 		}
 		
-		pathState = initialPathState;
+		
 		return pathLength-1;
 	
 	}
