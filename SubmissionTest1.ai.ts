@@ -11,7 +11,7 @@ function main(gameState, side){
   	secondDude = myTeam[1];
   	thirdDude = myTeam[2];
   	bestPathFound = false;
-      	currSurviveDistance = -2;
+      	currSurviveDistance = -3;
       	while(bestPathFound == false && currSurviveDistance<0){
           [x,y] = firstDude.coord;
           Path = PathFind1(x,y, pathState, currSurviveDistance, side); 
@@ -22,12 +22,17 @@ function main(gameState, side){
           	pathState = gameState;
             currSurviveDistance ++;
             console.log("NO PATH FOUND1");
+	    currSurviveDistance++;
+            console.log("NO PATH FOUND3");
+            console.log(currSurviveDistance);
+            console.log(x);
+	    console.log(y);
           }
           
         }
   	Dude1Direct = survDirection;
   	bestPathFound = false;
-      currSurviveDistance = -2;
+      currSurviveDistance = -3;
       while(bestPathFound == false && currSurviveDistance<0){
          [x,y] = thirdDude.coord;
         if(PathFind3(x,y, pathState, currSurviveDistance, side) >= 0){
@@ -38,13 +43,15 @@ function main(gameState, side){
           	currSurviveDistance++;
             console.log("NO PATH FOUND3");
             console.log(currSurviveDistance);
-          }
+            console.log(x);
+	    console.log(y);
+	}
           
         }
   	Dude3Direct = survDirection;
     
   	bestPathFound = false;
-    	currSurviveDistance = -2;
+    	currSurviveDistance = -3;
       	while(bestPathFound == false && currSurviveDistance<0){
           [x,y] = secondDude.coord;
           if(PathFind2(x,y, pathState, currSurviveDistance, side) >= 0){
@@ -54,6 +61,8 @@ function main(gameState, side){
           	pathState = gameState;
             currSurviveDistance ++;
             console.log("NO PATH FOUND2");
+	    console.log(x);
+	    console.log(y);
           }
           
         }
