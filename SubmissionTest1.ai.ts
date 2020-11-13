@@ -11,7 +11,7 @@ function main(gameState, side){
   	secondDude = myTeam[1];
   	thirdDude = myTeam[2];
   	bestPathFound = false;
-      	currSurviveDistance = -7;
+      	currSurviveDistance = -3;
       	while(bestPathFound == false && currSurviveDistance<0){
           [x,y] = firstDude.coord;
           Path = PathFind1(x,y, pathState, currSurviveDistance, side); 
@@ -27,7 +27,7 @@ function main(gameState, side){
         }
   	Dude1Direct = survDirection;
   	bestPathFound = false;
-      currSurviveDistance = -7;
+      currSurviveDistance = -3;
       while(bestPathFound == false && currSurviveDistance<0){
          [x,y] = thirdDude.coord;
         if(PathFind3(x,y, pathState, currSurviveDistance, side) >= 0){
@@ -44,7 +44,7 @@ function main(gameState, side){
   	Dude3Direct = survDirection;
     
   	bestPathFound = false;
-    	currSurviveDistance = -7;
+    	currSurviveDistance = -3;
       	while(bestPathFound == false && currSurviveDistance<0){
           [x,y] = secondDude.coord;
           if(PathFind2(x,y, pathState, currSurviveDistance, side) >= 0){
