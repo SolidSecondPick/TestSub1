@@ -124,7 +124,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState PathState;
 		if(y<6){
 		  if(pathState.tileStates[x][y+1] > 1){
 			EastPath = PathFind1(x, y+1, pathState, pathLength + 1);
@@ -134,7 +134,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 		if(y>0){
 		  if(pathState.tileStates[x][y-1] > 1){
 			WestPath = PathFind1(x, y-1, pathState, pathLength + 1);
@@ -144,7 +144,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 	  if(x>0){
 		  if(pathState.tileStates[x-1][y] > 1){
 			  NorthPath = PathFind1(x-1, y, pathState, pathLength + 1);
@@ -155,7 +155,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 		return pathLength-1;
 	}
 	
@@ -179,7 +179,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 		maxPath = 0;
 		
 		if(x>0){
-		  if(pathState.tileStates[x-1][y] > 1){
+		  if(pathState.tileStates[x-1][y] > 1){f
 			  NorthPath = PathFind1(x-1, y, pathState, pathLength + 1);
 			if(NorthPath >= 0){
 				survDirection = 'north';
@@ -188,7 +188,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 		if(y>0){
 		  if(pathState.tileStates[x][y-1] > 1){
 			WestPath = PathFind1(x, y-1, pathState, pathLength + 1);
@@ -198,7 +198,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 		if(y<6){
 		  if(pathState.tileStates[x][y+1] > 1){
 			EastPath = PathFind1(x, y+1, pathState, pathLength + 1);
@@ -208,7 +208,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 			}
 		  }
 		}
-		pathState = intialPathState;
+		pathState = initialPathState;
 		if(x<6){
 		  if(pathState.tileStates[x+1][y] > 1){	
 			SouthPath = PathFind1(x+1, y, pathState, pathLength+1);
@@ -219,7 +219,7 @@ function PathFind1(x, y, pathState, pathLength, side){
 		  }
 		}
 		
-		pathState = intialPathState;
+		pathState = initialPathState;
 		return pathLength-1;
 	
 	}
